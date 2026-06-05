@@ -3,24 +3,27 @@ section Section1;
 [DataDestinations = {[Definition = [Kind = "Reference", QueryName = "dim_company_DataDestination", IsNewTarget = true], Settings = [Kind = "Automatic", TypeSettings = [Kind = "Table"]]]}]
 shared dim_company = let
   Source = Lakehouse.Contents(null),
-  Navigation = Source{[workspaceId = "c70edda0-25b6-4c4e-ad60-5a2466e1851f"]}[Data],
-  #"Navigation 1" = Navigation{[lakehouseId = "6d567d3b-f85d-4055-a4b1-100b9da83cf0"]}[Data],
+  Navigation = Source{[workspaceId = Variable.ValueOrDefault("$(/**/vl_main/WorkspaceID)",  "c70edda0-25b6-4c4e-ad60-5a2466e1851f")]}[Data],
+  #"Navigation 1" = Navigation{[lakehouseId = Variable.ValueOrDefault("$(/**/vl_main/SilverLakehouseID)",  "6d567d3b-f85d-4055-a4b1-100b9da83cf0")]}[Data],
   #"Navigation 2" = #"Navigation 1"{[Id = "dim_company", ItemKind = "Table"]}[Data]
+
+
+
 in
   #"Navigation 2";
 [DataDestinations = {[Definition = [Kind = "Reference", QueryName = "dim_date_DataDestination", IsNewTarget = true], Settings = [Kind = "Automatic", TypeSettings = [Kind = "Table"]]]}]
 shared dim_date = let
   Source = Lakehouse.Contents(null),
-  Navigation = Source{[workspaceId = "c70edda0-25b6-4c4e-ad60-5a2466e1851f"]}[Data],
-  #"Navigation 1" = Navigation{[lakehouseId = "6d567d3b-f85d-4055-a4b1-100b9da83cf0"]}[Data],
+  Navigation = Source{[workspaceId = Variable.ValueOrDefault("$(/**/vl_main/WorkspaceID)",  "c70edda0-25b6-4c4e-ad60-5a2466e1851f")]}[Data],
+  #"Navigation 1" = Navigation{[lakehouseId = Variable.ValueOrDefault("$(/**/vl_main/SilverLakehouseID)",  "6d567d3b-f85d-4055-a4b1-100b9da83cf0")]}[Data],
   #"Navigation 2" = #"Navigation 1"{[Id = "dim_date", ItemKind = "Table"]}[Data]
 in
   #"Navigation 2";
 [DataDestinations = {[Definition = [Kind = "Reference", QueryName = "dim_profit_centers_DataDestination", IsNewTarget = true], Settings = [Kind = "Automatic", TypeSettings = [Kind = "Table"]]]}]
 shared dim_profit_centers = let
   Source = Lakehouse.Contents(null),
-  Navigation = Source{[workspaceId = "c70edda0-25b6-4c4e-ad60-5a2466e1851f"]}[Data],
-  #"Navigation 1" = Navigation{[lakehouseId = "6d567d3b-f85d-4055-a4b1-100b9da83cf0"]}[Data],
+  Navigation = Source{[workspaceId = Variable.ValueOrDefault("$(/**/vl_main/WorkspaceID)",  "c70edda0-25b6-4c4e-ad60-5a2466e1851f")]}[Data],
+  #"Navigation 1" = Navigation{[lakehouseId = Variable.ValueOrDefault("$(/**/vl_main/SilverLakehouseID)",  "6d567d3b-f85d-4055-a4b1-100b9da83cf0")]}[Data],
   #"Navigation 2" = #"Navigation 1"{[Id = "dim_profit_centers", ItemKind = "Table"]}[Data],
   #"Renamed columns" = Table.RenameColumns(#"Navigation 2", {{"Landing Zone 1 - Other", "Landing Zone OE"}})
 in
@@ -29,8 +32,8 @@ in
 shared fact_costs_cbn = let
   // Load fact table from Lakehouse
   Source = Lakehouse.Contents(null),
-  Navigation = Source{[workspaceId = "c70edda0-25b6-4c4e-ad60-5a2466e1851f"]}[Data],
-  #"Navigation 1" = Navigation{[lakehouseId = "6d567d3b-f85d-4055-a4b1-100b9da83cf0"]}[Data],
+  Navigation = Source{[workspaceId = Variable.ValueOrDefault("$(/**/vl_main/WorkspaceID)",  "c70edda0-25b6-4c4e-ad60-5a2466e1851f")]}[Data],
+  #"Navigation 1" = Navigation{[lakehouseId = Variable.ValueOrDefault("$(/**/vl_main/SilverLakehouseID)",  "6d567d3b-f85d-4055-a4b1-100b9da83cf0")]}[Data],
   fact_costs_cbn = #"Navigation 1"{[Id = "fact_costs_cbn", ItemKind = "Table"]}[Data],
 
   // Step 1: Build OH adjustments
@@ -154,15 +157,15 @@ in
 [DataDestinations = {[Definition = [Kind = "Reference", QueryName = "dim_cost_elements_DataDestination", IsNewTarget = true], Settings = [Kind = "Automatic", TypeSettings = [Kind = "Table"]]]}]
 shared dim_cost_elements = let
   Source = Lakehouse.Contents(null),
-  Navigation = Source{[workspaceId = "c70edda0-25b6-4c4e-ad60-5a2466e1851f"]}[Data],
-  #"Navigation 1" = Navigation{[lakehouseId = "6d567d3b-f85d-4055-a4b1-100b9da83cf0"]}[Data],
+  Navigation = Source{[workspaceId = Variable.ValueOrDefault("$(/**/vl_main/WorkspaceID)",  "c70edda0-25b6-4c4e-ad60-5a2466e1851f")]}[Data],
+  #"Navigation 1" = Navigation{[lakehouseId = Variable.ValueOrDefault("$(/**/vl_main/SilverLakehouseID)",  "6d567d3b-f85d-4055-a4b1-100b9da83cf0")]}[Data],
   #"Navigation 2" = #"Navigation 1"{[Id = "dim_cost_elements", ItemKind = "Table"]}[Data]
 in
   #"Navigation 2";
 shared map_cbn_oh_allocation = let
   Source = Lakehouse.Contents(null),
-  Navigation = Source{[workspaceId = "c70edda0-25b6-4c4e-ad60-5a2466e1851f"]}[Data],
-  #"Navigation 1" = Navigation{[lakehouseId = "6d567d3b-f85d-4055-a4b1-100b9da83cf0"]}[Data],
+  Navigation = Source{[workspaceId = Variable.ValueOrDefault("$(/**/vl_main/WorkspaceID)",  "c70edda0-25b6-4c4e-ad60-5a2466e1851f")]}[Data],
+  #"Navigation 1" = Navigation{[lakehouseId = Variable.ValueOrDefault("$(/**/vl_main/SilverLakehouseID)",  "6d567d3b-f85d-4055-a4b1-100b9da83cf0")]}[Data],
   #"Navigation 2" = #"Navigation 1"{[Id = "map_cbn_oh_allocation", ItemKind = "Table"]}[Data]
 in
   #"Navigation 2";
