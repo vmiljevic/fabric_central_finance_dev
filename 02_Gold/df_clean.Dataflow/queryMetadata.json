@@ -1,0 +1,83 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "df_clean",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "dim_company": {
+      "queryId": "816e86fc-faa9-4d99-9c55-167673afca3e",
+      "queryName": "dim_company",
+      "loadEnabled": false
+    },
+    "dim_date": {
+      "queryId": "fb47c170-bcc2-44fe-88d0-5fea3f843ec5",
+      "queryName": "dim_date",
+      "loadEnabled": false
+    },
+    "dim_profit_centers": {
+      "queryId": "2ac756f1-bde9-4545-9237-43623be9819b",
+      "queryName": "dim_profit_centers",
+      "loadEnabled": false
+    },
+    "fact_costs_cbn": {
+      "queryId": "6a98523b-e5f9-4366-a319-139480330675",
+      "queryName": "fact_costs_cbn",
+      "loadEnabled": false
+    },
+    "dim_cost_elements": {
+      "queryId": "573a36e1-2cfa-45df-966e-776ff289afd8",
+      "queryName": "dim_cost_elements",
+      "loadEnabled": false
+    },
+    "map_cbn_oh_allocation": {
+      "queryId": "df2fa64b-f5a7-4f91-9aec-37215694538e",
+      "queryName": "map_cbn_oh_allocation",
+      "loadEnabled": false
+    },
+    "dim_date_DataDestination": {
+      "queryId": "d82aff6d-2ec0-43e2-9f8b-9c942d7f433e",
+      "queryName": "dim_date_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_company_DataDestination": {
+      "queryId": "7800ef06-5867-45df-b90b-3893013cb798",
+      "queryName": "dim_company_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "fact_costs_cbn_DataDestination": {
+      "queryId": "f2054dd2-787f-4b3d-abea-859370d01967",
+      "queryName": "fact_costs_cbn_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_cost_elements_DataDestination": {
+      "queryId": "1a6c414c-3d75-4a20-a30f-8a6430da9a58",
+      "queryName": "dim_cost_elements_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_profit_centers_DataDestination": {
+      "queryId": "8dde7921-c0b6-42c0-a3e1-9fad787b9fe4",
+      "queryName": "dim_profit_centers_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "fact_costs_cbn_restructuring": {
+      "queryId": "793a97cb-90af-444b-b234-32022fd716d5",
+      "queryName": "fact_costs_cbn_restructuring",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"e3085755-1c3d-4627-9f38-cce3b8987262\",\"DatasourceId\":\"b119cf12-394d-439c-bedf-be1b70fcb3eb\"}"
+    }
+  ]
+}

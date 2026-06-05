@@ -1,0 +1,142 @@
+table dim_date
+	lineageTag: a5e027b4-2a9a-4289-a9f4-e4132871f9aa
+	sourceLineageTag: [dbo].[dim_date]
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 040c5409-e54f-4c62-ad0b-9035aa16f850
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 403780a0-7ee3-4eb3-89d6-01ace3c023eb
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: ca752e44-2b0e-4134-8ce5-9ebed85b9f43
+		sourceLineageTag: Quarter Number
+		summarizeBy: none
+		sourceColumn: Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c399d6a8-16c1-4eb3-bc12-15da037c6539
+		sourceLineageTag: Quarter Name
+		summarizeBy: none
+		sourceColumn: Quarter Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number Short'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7eeaa459-218e-4323-b10e-866baf4c1f59
+		sourceLineageTag: Month Number Short
+		summarizeBy: none
+		sourceColumn: Month Number Short
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name Short'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 01e972b6-4171-4fc3-8eee-17515d05f051
+		sourceLineageTag: Month Name Short
+		summarizeBy: none
+		sourceColumn: Month Name Short
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Service'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2927cd52-40e4-41eb-9227-390409c48f89
+		sourceLineageTag: Month Service
+		summarizeBy: none
+		sourceColumn: Month Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: af23ab9d-8093-4caf-ba80-be1495505120
+		sourceLineageTag: Month Number
+		summarizeBy: none
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 4d61558e-8b55-480b-867d-b712cc4de8ae
+		sourceLineageTag: Month Date
+		summarizeBy: none
+		sourceColumn: Month Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Current Month'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 2964db86-1fbf-4bfb-807f-d5d2f4444282
+		sourceLineageTag: Is Current Month
+		summarizeBy: none
+		sourceColumn: Is Current Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Previous Month'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 1ae0394e-5109-435e-aa58-12a229c84f70
+		sourceLineageTag: Is Previous Month
+		summarizeBy: none
+		sourceColumn: Is Previous Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Current Year'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: c255ccd1-7e2e-4fd0-888b-671716e9ef79
+		sourceLineageTag: Is Current Year
+		summarizeBy: none
+		sourceColumn: Is Current Year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

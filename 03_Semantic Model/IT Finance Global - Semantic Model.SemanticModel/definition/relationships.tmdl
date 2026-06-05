@@ -1,0 +1,16 @@
+relationship 77dba9ee-4aa9-e92e-f513-8f6700dcb31a
+	fromColumn: fact_costs_cbn.'Month Date'
+	toColumn: dim_date.Date
+
+relationship 60916efb-73f0-545f-037b-997c1990dbce
+	fromColumn: fact_costs_cbn.'Cost Element'
+	toColumn: dim_cost_elements.'Cost Element ID'
+
+relationship 7af73eb7-138f-57bb-edad-41dd79bbb36f
+	fromColumn: fact_costs_cbn.'Company Code'
+	toColumn: dim_company.'Company Code'
+
+relationship 0108f539-15c4-17ef-4fb7-bbf41c717dc4
+	fromColumn: fact_costs_cbn.'Profit Center Key'
+	toColumn: dim_profit_centers.'Profit Center Key'
+

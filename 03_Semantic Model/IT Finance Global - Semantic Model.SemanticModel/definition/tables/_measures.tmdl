@@ -1,0 +1,315 @@
+table _measures
+	lineageTag: c6143470-4d63-448f-ab43-9202d957ad9a
+	sourceLineageTag: [dbo].[_measures]
+
+	measure 'Costs YTD Actuals CbN' = CALCULATE (SUM ( fact_costs_cbn[Amount]),fact_costs_cbn[Amount Type] = "Actuals",DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Main
+		lineageTag: 70892a14-48f8-4f41-8b7c-a824a28d1960
+
+	measure 'Costs YTD Actuals CbN Label' = CALCULATE (SUM ( fact_costs_cbn[Amount]),fact_costs_cbn[Amount Type] = "Actuals",DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Main
+		lineageTag: 28ebb0e6-ad11-462e-bbfd-f431b6bcae8a
+
+	measure 'Costs YTD Actuals CbN with OH' = CALCULATE (SUM ( fact_costs_cbn[Amount Adjusted]),fact_costs_cbn[Amount Type] = "Actuals",DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Main
+		lineageTag: 5d643bab-78a3-45ff-8bc6-2f2f088dacdb
+
+	measure 'Costs YTD CbN' = CALCULATE (SUM ( fact_costs_cbn[Amount]),DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Main
+		lineageTag: 18dd2dce-923f-4904-bb11-7576800820b5
+
+	measure 'Costs CbN 12M Plan NY' =
+			CALCULATE(
+			    SUM(fact_costs_cbn[Amount])*-1,
+			    fact_costs_cbn[Amount Type] = "Plan",
+			    FILTER(
+			        ALL(dim_date[Date]),
+			        YEAR(dim_date[Date]) = YEAR(MAX(dim_date[Date])) + 1
+			    )
+			)
+		displayFolder: Costs\Main
+		lineageTag: 4be23d5d-0793-43aa-9ddf-81728918f528
+
+	measure 'Costs CbN Delta YTD Plan NY' = [Costs YTD Actuals CBN] - [Costs CbN 12M Plan NY]
+		displayFolder: Costs\Main
+		lineageTag: 61759523-f6a1-4946-ab29-cd2ae6930000
+
+	measure 'Costs CbN % Delta YTD Plan' = DIVIDE([Costs CbN Delta YTD Plan NY], ABS([Costs CbN 12M Plan NY]),0)
+		formatString: 0%;-0%;0%
+		displayFolder: Costs\Main
+		lineageTag: 5f9c884c-2c1b-426b-ad3b-518fe8c9016b
+
+		changedProperty = FormatString
+
+	measure 'Costs CbN Overhead' =
+			CALCULATE(
+			    [Costs YTD Actuals CbN],
+			    fact_costs_cbn[Overhead Indicator] = "Overhead"
+			)*-1
+		displayFolder: Costs\Main
+		lineageTag: 0af6d0df-8322-4503-a716-3f59b1467b45
+
+	measure 'Costs CbN Non Overhead' = [Costs YTD Actuals CbN] - [Costs CbN Overhead]
+		displayFolder: Costs\Main
+		lineageTag: f6fb15dc-32a9-454e-87d3-a8c8f390fae7
+
+	measure 'Costs CbN 12M Plan NY Overhead' =
+			CALCULATE(
+			    [Costs CbN 12M Plan NY],
+			    fact_costs_cbn[Overhead Indicator] = "Overhead"
+			)*-1
+		displayFolder: Costs\Main
+		lineageTag: 1bce7b92-0daa-48ad-9763-54ecdfa3a705
+
+	measure 'Costs CbN Overhead Ratio %' = DIVIDE([Costs CbN Overhead], [Costs YTD Actuals CbN], 0)
+		formatString: 0%;-0%;0%
+		displayFolder: Costs\Main
+		lineageTag: 72c37f29-bbe9-4298-a41a-accbdf662e89
+
+		changedProperty = FormatString
+
+	measure 'Costs CbN Overhead Plan Ratio %' = DIVIDE([Costs CbN 12M Plan NY Overhead], [Costs CbN 12M Plan NY], 0)
+		formatString: 0%;-0%;0%
+		displayFolder: Costs\Main
+		lineageTag: b4098577-407e-4270-a41f-3107315340e3
+
+		changedProperty = FormatString
+
+	measure 'Costs CbN Overhead vs Plan %' =
+			DIVIDE(
+			    [Costs CbN Overhead] - [Costs CbN 12M Plan NY Overhead],
+			    [Costs CbN 12M Plan NY Overhead],
+			    0
+			)
+		formatString: 0%;-0%;0%
+		displayFolder: Costs\Main
+		lineageTag: b8f85dbb-f83f-45bc-94fc-d4028adc36c3
+
+		changedProperty = FormatString
+
+	measure 'Costs CbN Display' =
+			SWITCH(
+			    SELECTEDVALUE('Type'[Type]),
+			    "Actuals",  [Costs YTD Actuals CbN],
+			    "Y+1 Plan", [Costs CbN 12M Plan NY]
+			)
+		displayFolder: Costs\Main
+		lineageTag: 07142b49-73d0-48f6-922c-1ec9a589cc1b
+
+	measure 'Costs YTD FC CbN' =
+			CALCULATE(
+			    SUM(fact_costs_cbn[Amount])*-1,
+			    fact_costs_cbn[Amount Type] = "FC",
+			    FILTER(
+			        ALL(dim_date[Date]),
+			        YEAR(dim_date[Date]) = YEAR(MAX(dim_date[Date])) + 1
+			    )
+			)
+		displayFolder: Costs\Main
+		lineageTag: 76abac42-90cb-423c-8e52-adf3ae9fe9a0
+
+	measure 'Costs Refresh Time' =
+			VAR RefreshDate = CALCULATE(MAX(fact_costs_cbn[Refresh Date]))
+			RETURN
+			"Source data refreshed on: "
+			    & FORMAT(
+			        RefreshDate + TIME(1, 0, 0),
+			        "dd.MM.yyyy hh:mm AM/PM"
+			    )
+			    & " CET"
+			    & ", master data hierarchy from: "
+			    & FORMAT(
+			        EOMONTH(RefreshDate, -1),
+			        "dd.MM.yyyy"
+			    )
+		displayFolder: Costs\_Info
+		lineageTag: aa3c014c-16ab-413a-b422-8f0635f3cf81
+
+	measure 'Costs CbN Fact Count' =
+			COUNTROWS(
+			    FILTER(
+			        fact_costs_cbn,
+			        fact_costs_cbn[Amount] > 0
+			    )
+			)
+		displayFolder: Costs\_Info
+		lineageTag: 74843ca5-c9f9-4ec5-9d73-523415dab8d8
+
+	measure 'Costs YTD Actuals CbN Run' = CALCULATE (SUM ( fact_costs_cbn[Amount Adjusted]),fact_costs_cbn[Amount Type] = "Actuals", fact_costs_cbn[Change Run Indicator] = "Run",DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Run
+		lineageTag: d39d4767-9ce3-449b-b03f-9777ae22e007
+
+	measure 'Costs 12M Plan NY Run' =
+			CALCULATE(
+			    SUM(fact_costs_cbn[Amount Adjusted])*-1,
+			    fact_costs_cbn[Amount Type] = "Plan", fact_costs_cbn[Change Run Indicator] ="Run",
+			    FILTER(
+			        ALL(dim_date[Date]),
+			        YEAR(dim_date[Date]) = YEAR(MAX(dim_date[Date])) + 1
+			    )
+			)
+		displayFolder: Costs\Run
+		lineageTag: 5210bb1f-e861-45db-af71-e90cca5ab9fb
+
+	measure 'Run Card Subtitle' =
+			VAR PctOfTotal =
+			    DIVIDE(
+			        [Costs YTD Actuals CbN Run],
+			        CALCULATE([Costs YTD Actuals CbN with OH], REMOVEFILTERS(fact_costs_cbn[Change Run Indicator]))
+			    )
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Run] - [Costs 12M Plan NY Run], [Costs 12M Plan NY Run])
+			RETURN
+			    FORMAT(PctOfTotal, "0%") & " of total, " &
+			    IF(VsPlan >= 0, "+", "") &
+			    FORMAT(VsPlan, "0%") & " vs Y+1 Plan"
+		displayFolder: Costs\Run
+		lineageTag: 326d89b4-ad3a-40dd-b513-ea8bb9d3c3c5
+
+	measure 'Run Card Subtitle Color' =
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Run] - [Costs 12M Plan NY Run], [Costs 12M Plan NY Run])
+			RETURN
+			    IF(VsPlan >= 0, "#5FCD8A", "#D64550")
+		displayFolder: Costs\Run
+		lineageTag: 63c29451-9a01-40ba-ac5e-5a73c5849dd0
+
+	measure 'Costs 12M Plan NY Change' =
+			CALCULATE(
+			    SUM(fact_costs_cbn[Amount Adjusted])*-1,
+			    fact_costs_cbn[Amount Type] = "Plan", fact_costs_cbn[Change Run Indicator] ="Change",
+			    FILTER(
+			        ALL(dim_date[Date]),
+			        YEAR(dim_date[Date]) = YEAR(MAX(dim_date[Date])) + 1
+			    )
+			)
+		displayFolder: Costs\Change
+		lineageTag: 35461e64-6b33-47ce-8c9f-9bb3139abe01
+
+	measure 'Costs YTD Actuals CbN Change' = CALCULATE (SUM ( fact_costs_cbn[Amount Adjusted]),fact_costs_cbn[Amount Type] = "Actuals", fact_costs_cbn[Change Run Indicator] = "Change",DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Change
+		lineageTag: e0b1be77-9b0a-4bb7-b229-9ff1ca409420
+
+	measure 'Change Card Subtitle' =
+			VAR PctOfTotal =
+			    DIVIDE(
+			        [Costs YTD Actuals CbN Change],
+			        CALCULATE([Costs YTD Actuals CbN with OH], REMOVEFILTERS(fact_costs_cbn[Change Run Indicator]))
+			    )
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Change] - [Costs 12M Plan NY Change], [Costs 12M Plan NY Change])
+			RETURN
+			    FORMAT(PctOfTotal, "0%") & " of total, " &
+			    IF(VsPlan >= 0, "+", "") &
+			    FORMAT(VsPlan, "0%") & " vs Y+1 Plan"
+		displayFolder: Costs\Change
+		lineageTag: de5829af-14b5-4575-8038-55f45c869319
+
+	measure 'Change Card Subtitle Color' =
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Change] - [Costs 12M Plan NY Change], [Costs 12M Plan NY Change])
+			RETURN
+			    IF(VsPlan >= 0, "#5FCD8A", "#D64550")
+		displayFolder: Costs\Change
+		lineageTag: 9b6e26e2-e6f3-42cc-977f-14300c5a3d1b
+
+	measure 'Costs YTD Actuals CbN Local' = CALCULATE (SUM ( fact_costs_cbn[Amount]),fact_costs_cbn[Amount Type] = "Actuals", fact_costs_cbn[Global Local Indicator] = "Local",DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Local
+		lineageTag: 18054fb8-b4d3-4f63-8e91-edce370adbe3
+
+	measure 'Costs 12M Plan NY Local' =
+			CALCULATE(
+			    SUM(fact_costs_cbn[Amount])*-1,
+			    fact_costs_cbn[Amount Type] = "Plan", fact_costs_cbn[Global Local Indicator] ="Local",
+			    FILTER(
+			        ALL(dim_date[Date]),
+			        YEAR(dim_date[Date]) = YEAR(MAX(dim_date[Date])) + 1
+			    )
+			)
+		displayFolder: Costs\Local
+		lineageTag: 365c4fbe-e026-4f87-9e82-96b59bb82842
+
+	measure 'Local Card Subtitle' =
+			VAR PctOfTotal =
+			    DIVIDE(
+			        [Costs YTD Actuals CbN Local],
+			        CALCULATE([Costs YTD Actuals CbN], REMOVEFILTERS(fact_costs_cbn[Global Local Indicator]))
+			    )
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Local] - [Costs 12M Plan NY Local], [Costs 12M Plan NY Local])
+			RETURN
+			    FORMAT(PctOfTotal, "0%") & " of total, " &
+			    IF(VsPlan >= 0, "+", "") &
+			    FORMAT(VsPlan, "0%") & " vs Y+1 Plan"
+		displayFolder: Costs\Local
+		lineageTag: 79f4f4f8-47aa-445b-b2cf-81f3f16982d5
+
+	measure 'Local Card Subtitle Color' =
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Local] - [Costs 12M Plan NY Local], [Costs 12M Plan NY Local])
+			RETURN
+			    IF(VsPlan >= 0, "#5FCD8A", "#D64550")
+		displayFolder: Costs\Local
+		lineageTag: 955ac6cc-0050-4e91-84e1-45894268013d
+
+	measure 'Costs 12M Plan NY Global' =
+			CALCULATE(
+			    SUM(fact_costs_cbn[Amount])*-1,
+			    fact_costs_cbn[Amount Type] = "Plan", fact_costs_cbn[Global Local Indicator] ="Global",
+			    FILTER(
+			        ALL(dim_date[Date]),
+			        YEAR(dim_date[Date]) = YEAR(MAX(dim_date[Date])) + 1
+			    )
+			)
+		displayFolder: Costs\Global
+		lineageTag: 554ca61a-063b-48fc-b2da-357dcc751540
+
+	measure 'Costs YTD Actuals CbN Global' = CALCULATE (SUM ( fact_costs_cbn[Amount]),fact_costs_cbn[Amount Type] = "Actuals", fact_costs_cbn[Global Local Indicator] = "Global",DATESYTD(dim_date[Date]))*-1+0
+		displayFolder: Costs\Global
+		lineageTag: dd559b9f-ba2f-4bda-bcc6-1eec520d3249
+
+	measure 'Global Card Subtitle' =
+			VAR PctOfTotal =
+			    DIVIDE(
+			        [Costs YTD Actuals CbN Global],
+			        CALCULATE([Costs YTD Actuals CbN], REMOVEFILTERS(fact_costs_cbn[Global Local Indicator]))
+			    )
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Global] - [Costs 12M Plan NY Global], [Costs 12M Plan NY Global])
+			RETURN
+			    FORMAT(PctOfTotal, "0%") & " of total, " &
+			    IF(VsPlan >= 0, "+", "") &
+			    FORMAT(VsPlan, "0%") & " vs Y+1 Plan"
+		displayFolder: Costs\Global
+		lineageTag: 72d0ed16-1772-48c9-890a-ea0852d7a0b3
+
+	measure 'Global Card Subtitle Color' =
+			VAR VsPlan = DIVIDE([Costs YTD Actuals CbN Global] - [Costs 12M Plan NY Global], [Costs 12M Plan NY Global])
+			RETURN
+			    IF(VsPlan >= 0, "#5FCD8A", "#D64550")
+		displayFolder: Costs\Global
+		lineageTag: 70e1ac99-616e-494e-8279-e796f7222b2e
+
+	measure User = UserPrincipalName()
+		displayFolder: _Sec
+		lineageTag: e97fe0cc-4950-4251-b880-dac31b29797c
+
+	measure 'Message User Logged' = "Current user: " & [User]
+		displayFolder: _Sec
+		lineageTag: 1c5bc606-6371-40b8-8625-c0a9ab07d697
+
+	column Placeholder
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: 0ca37916-3b4a-42bf-8a94-92cfcc749fbe
+		sourceLineageTag: Placeholder
+		summarizeBy: none
+		sourceColumn: Placeholder
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measures = entity
+		mode: directLake
+		source
+			entityName: _measures
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

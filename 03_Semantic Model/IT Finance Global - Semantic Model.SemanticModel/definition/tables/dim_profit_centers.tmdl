@@ -1,0 +1,343 @@
+table dim_profit_centers
+	lineageTag: e3046a7f-01c1-460c-a6cc-cca893bd08ee
+	sourceLineageTag: [dbo].[dim_profit_centers]
+
+	column 'Profit Center'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 22236d4c-9b38-4571-8002-6c3af76e81e4
+		sourceLineageTag: Profit Center
+		summarizeBy: none
+		sourceColumn: Profit Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9722756d-2528-4cd3-821f-0344d904eb9f
+		sourceLineageTag: Profit Center Name
+		summarizeBy: none
+		sourceColumn: Profit Center Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valid From'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8c407bb4-4011-4757-9435-0c2ad088df6f
+		sourceLineageTag: Valid From
+		summarizeBy: none
+		sourceColumn: Valid From
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valid To'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0f4bfe06-a17f-472e-8fd5-c05aa884ece2
+		sourceLineageTag: Valid To
+		summarizeBy: none
+		sourceColumn: Valid To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Responsible'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a7ace964-86d8-44f8-814e-964de13c8958
+		sourceLineageTag: Person Responsible
+		summarizeBy: none
+		sourceColumn: Person Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lock Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed75ba38-123c-4b25-8c05-313fee20f8b4
+		sourceLineageTag: Lock Indicator
+		summarizeBy: none
+		sourceColumn: Lock Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pillar
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 45805043-f73d-43c1-b9ba-167f1e466c43
+		sourceLineageTag: Pillar
+		summarizeBy: none
+		sourceColumn: Pillar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Category'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1057f704-be02-4239-941f-9c1be563a3b9
+		sourceLineageTag: Profit Center Category
+		summarizeBy: none
+		sourceColumn: Profit Center Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c845e848-8262-47ff-a349-ac2034c40981
+		sourceLineageTag: Division
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 10b27680-3209-43e4-86b7-1084d6198b18
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a7ca4281-6238-4226-b392-1d517f6b6f54
+		sourceLineageTag: Status
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9e4645f6-7ee0-40a0-8c9e-7aaa3fa03c6c
+		sourceLineageTag: Investment Type
+		summarizeBy: none
+		sourceColumn: Investment Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Portfolio
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 82e090fd-558a-4788-84e3-fae19ca663e0
+		sourceLineageTag: Portfolio
+		summarizeBy: none
+		sourceColumn: Portfolio
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Cluster'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6b03d52c-4aed-4a8b-a065-048c28405a9c
+		sourceLineageTag: Program Cluster
+		summarizeBy: none
+		sourceColumn: Program Cluster
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Cluster Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2008c714-d9bf-4b27-bf70-8fcb4e7e1791
+		sourceLineageTag: Program Cluster Name
+		summarizeBy: none
+		sourceColumn: Program Cluster Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Program
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c059a81d-29a9-4a37-a4f9-3ae4dd9f216f
+		sourceLineageTag: Program
+		summarizeBy: none
+		sourceColumn: Program
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a2656f10-c2c0-4ae8-9288-e2adee80dbe6
+		sourceLineageTag: Program Name
+		summarizeBy: none
+		sourceColumn: Program Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Landscape'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5f17cd3b-84d3-4824-bdf9-f125895a0d98
+		sourceLineageTag: Service Landscape
+		summarizeBy: none
+		sourceColumn: Service Landscape
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Landscape Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5ae0802c-70e2-452a-aa82-6e1bc3814360
+		sourceLineageTag: Service Landscape Name
+		summarizeBy: none
+		sourceColumn: Service Landscape Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Class'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2fe9b7c8-904a-4f72-835d-887c493937f1
+		sourceLineageTag: Service Class
+		summarizeBy: none
+		sourceColumn: Service Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Class Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 75f14bd2-659f-479a-b3cd-2831285707c6
+		sourceLineageTag: Service Class Name
+		summarizeBy: none
+		sourceColumn: Service Class Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Package'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 48ec896d-899a-4b26-8f00-b779e01007a0
+		sourceLineageTag: Service Package
+		summarizeBy: none
+		sourceColumn: Service Package
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Package Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7d943f57-eae7-47a5-b67b-9dc933456093
+		sourceLineageTag: Service Package Name
+		summarizeBy: none
+		sourceColumn: Service Package Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'File Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ddfae3fe-4d00-47a6-a514-db206a0512f0
+		sourceLineageTag: File Name
+		summarizeBy: none
+		sourceColumn: File Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Refresh Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: eb3fa635-7110-49e3-a9e5-f46dd24b3506
+		sourceLineageTag: Refresh Date
+		summarizeBy: none
+		sourceColumn: Refresh Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cf72b563-6bba-48b5-8b35-cd1620f069f2
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Landing Group/OE'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1c3ce064-ee59-4be9-bd1b-de1280a5f293
+		sourceLineageTag: Landing Group/OE
+		summarizeBy: none
+		sourceColumn: Landing Group/OE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Landing Zone 0'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e4a41288-17eb-4166-bfac-490e7844cac3
+		sourceLineageTag: Landing Zone 0
+		summarizeBy: none
+		sourceColumn: Landing Zone 0
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Landing Zone 1'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8a081850-69ed-4da1-9495-fa65849cdb77
+		sourceLineageTag: Landing Zone 1
+		summarizeBy: none
+		sourceColumn: Landing Zone 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Landing Zone OE'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6d64a753-557d-4af7-bdbd-001d2b9e88d7
+		sourceLineageTag: Landing Zone OE
+		summarizeBy: none
+		sourceColumn: Landing Zone OE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Global Local Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ba64287d-f868-47fe-a656-d44912baf59d
+		sourceLineageTag: Global Local Indicator
+		summarizeBy: none
+		sourceColumn: Global Local Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Key'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: decec892-d020-4bb3-9d5e-ddf377863c14
+		sourceLineageTag: Profit Center Key
+		summarizeBy: none
+		sourceColumn: Profit Center Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Service Cluster'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 153898f8-01b9-4a5e-afe6-69783d6726fa
+		sourceLineageTag: Target Service Cluster
+		summarizeBy: none
+		sourceColumn: Target Service Cluster
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_profit_centers = entity
+		mode: directLake
+		source
+			entityName: dim_profit_centers
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,229 @@
+table fact_costs_cbn
+	lineageTag: 7a36d135-a487-4136-947c-49f3db1495a9
+	sourceLineageTag: [dbo].[fact_costs_cbn]
+
+	column 'Company Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0420823b-5c3b-4170-ab01-c2090b197b73
+		sourceLineageTag: Company Code
+		summarizeBy: none
+		sourceColumn: Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8dc439d4-03c8-4959-8ebc-cddf03e509c0
+		sourceLineageTag: Profit Center
+		summarizeBy: none
+		sourceColumn: Profit Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6f129776-fc7d-49f4-bd18-9a3ebf23230f
+		sourceLineageTag: Profit Center Name
+		summarizeBy: none
+		sourceColumn: Profit Center Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b818215a-8f25-4d5f-b8d0-bde540d4b8fc
+		sourceLineageTag: Cost Center
+		summarizeBy: none
+		sourceColumn: Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ac2f6215-1bde-4a9d-a325-b4fd79b4d2d4
+		sourceLineageTag: Cost Center Name
+		summarizeBy: none
+		sourceColumn: Cost Center Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5416e5d9-fae5-4c63-a8b7-6e65abfcca54
+		sourceLineageTag: WBS Element
+		summarizeBy: none
+		sourceColumn: WBS Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 76594523-6e10-4556-b29c-b6201ff5a5bd
+		sourceLineageTag: WBS Element Name
+		summarizeBy: none
+		sourceColumn: WBS Element Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Refresh Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2eb17b88-2244-4d82-b52e-b5a7f5e037e5
+		sourceLineageTag: Refresh Date
+		summarizeBy: none
+		sourceColumn: Refresh Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amount Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 884fa342-c2d0-4149-bcc1-95636f104629
+		sourceLineageTag: Amount Type
+		summarizeBy: none
+		sourceColumn: Amount Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: d57e089e-526a-43c9-bf39-14ed902bf3fc
+		sourceLineageTag: Month Date
+		summarizeBy: none
+		sourceColumn: Month Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pl Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 53957823-35b7-410d-a0a8-b1ddab803fc1
+		sourceLineageTag: Pl Type
+		summarizeBy: none
+		sourceColumn: Pl Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Key'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 951af5b9-b2f2-418a-891a-21feb11b0b37
+		sourceLineageTag: Profit Center Key
+		summarizeBy: none
+		sourceColumn: Profit Center Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AMOS REP - L2'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c21141ec-4b05-4ae4-943f-6b99b2836910
+		sourceLineageTag: AMOS REP - L2
+		summarizeBy: none
+		sourceColumn: AMOS REP - L2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 40d46b7f-9d21-4828-bddb-cb75c8bac774
+		sourceLineageTag: Cost Element
+		summarizeBy: none
+		sourceColumn: Cost Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		sourceProviderType: float
+		lineageTag: f750f3be-50d8-468a-aa3a-583c5cd66e76
+		sourceLineageTag: Amount
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Amount Adjusted'
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 580b9167-3eb9-4dfe-b748-baf69f5a63ac
+		sourceLineageTag: Amount Adjusted
+		summarizeBy: sum
+		sourceColumn: Amount Adjusted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Change Run Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2881057b-4edf-4014-9ac5-ab4f616cca48
+		sourceLineageTag: Change Run Indicator
+		summarizeBy: none
+		sourceColumn: Change Run Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Overhead Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0a1d8ff9-7997-42c1-ae87-d30bd5cb95bb
+		sourceLineageTag: Overhead Indicator
+		summarizeBy: none
+		sourceColumn: Overhead Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Landing Zone OE'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3aec75f1-530b-4dcb-b151-640e2401a3c7
+		sourceLineageTag: Landing Zone OE
+		summarizeBy: none
+		sourceColumn: Landing Zone OE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Service Cluster'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d39e58a4-e846-466a-b90f-5af6b998e64d
+		sourceLineageTag: Target Service Cluster
+		summarizeBy: none
+		sourceColumn: Target Service Cluster
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Global Local Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2c16fba1-7937-43ea-bd42-3e1fce283e1a
+		sourceLineageTag: Global Local Indicator
+		summarizeBy: none
+		sourceColumn: Global Local Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_costs_cbn = entity
+		mode: directLake
+		source
+			entityName: fact_costs_cbn
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,179 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "df_ingest",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "fact_costs_cbn_actuals": {
+      "queryId": "a0c3f93b-0c72-4d59-9b90-cd278be10bb7",
+      "queryName": "fact_costs_cbn_actuals",
+      "loadEnabled": false
+    },
+    "fact_costs_cbn_plan": {
+      "queryId": "352d16f8-4cf1-4742-8195-ed6a218f38bc",
+      "queryName": "fact_costs_cbn_plan",
+      "loadEnabled": false
+    },
+    "fact_costs_cbn_py": {
+      "queryId": "44fd9b6c-b0a9-45b3-9a68-0ca839e9f8b2",
+      "queryName": "fact_costs_cbn_py",
+      "loadEnabled": false
+    },
+    "fact_costs_cbn_fc": {
+      "queryId": "b2ec083e-27de-456c-9ecc-f99298bf46be",
+      "queryName": "fact_costs_cbn_fc",
+      "loadEnabled": false
+    },
+    "fact_costs_cbn": {
+      "queryId": "12567ff3-9dcf-4835-9326-558d0257fcb3",
+      "queryName": "fact_costs_cbn",
+      "loadEnabled": false
+    },
+    "fact_costs_restructuring": {
+      "queryId": "f2d19635-2184-4efe-82f6-e230b0027241",
+      "queryName": "fact_costs_restructuring",
+      "loadEnabled": false
+    },
+    "dim_date": {
+      "queryId": "335b8f2e-ae7d-4778-bafa-318d0b57e1cf",
+      "queryName": "dim_date",
+      "loadEnabled": false
+    },
+    "dim_company": {
+      "queryId": "ede0be65-d438-4b15-85b5-7f509d587506",
+      "queryName": "dim_company",
+      "loadEnabled": false
+    },
+    "dim_cost_elements": {
+      "queryId": "0785d15a-7b65-458f-b41c-aa7f0fb990f4",
+      "queryName": "dim_cost_elements",
+      "loadEnabled": false
+    },
+    "dim_profit_centers": {
+      "queryId": "eadd6326-2930-4989-a557-14e2915e620b",
+      "queryName": "dim_profit_centers",
+      "loadEnabled": false
+    },
+    "dim_profit_centers_bw_archive": {
+      "queryId": "db42dc6e-fa57-42c4-94f6-6dd02b6b6479",
+      "queryName": "dim_profit_centers_bw_archive",
+      "loadEnabled": false
+    },
+    "map_wbs": {
+      "queryId": "416ef3b1-1349-43f7-b43b-e767c7f9604a",
+      "queryName": "map_wbs"
+    },
+    "map_cbn_main": {
+      "queryId": "0744973d-3673-48c6-938b-9f9e670523d9",
+      "queryName": "map_cbn_main"
+    },
+    "map_cbn_vat_elements": {
+      "queryId": "657b9cf5-da25-4416-ba72-5908da26fd52",
+      "queryName": "map_cbn_vat_elements",
+      "loadEnabled": false
+    },
+    "map_cbn_vat_splits": {
+      "queryId": "5c2f5715-4efd-4061-9ee9-65aa9ca24d5b",
+      "queryName": "map_cbn_vat_splits",
+      "loadEnabled": false
+    },
+    "map_cbn_sort": {
+      "queryId": "5810c5d3-b420-4e13-bcdd-230410726eab",
+      "queryName": "map_cbn_sort",
+      "loadEnabled": false
+    },
+    "map_local_global": {
+      "queryId": "1604de36-f53e-4109-89bf-f30e87bdebce",
+      "queryName": "map_local_global",
+      "loadEnabled": false
+    },
+    "dim_date_DataDestination": {
+      "queryId": "873c8b2f-981f-49de-90d2-6fdd260fdcae",
+      "queryName": "dim_date_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_company_DataDestination": {
+      "queryId": "ffa009de-697b-4bf7-a833-5d276ea18f95",
+      "queryName": "dim_company_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_profit_centers_DataDestination": {
+      "queryId": "825e8e38-127e-41d4-9738-5fc8506d5d45",
+      "queryName": "dim_profit_centers_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "map_cbn_oh_allocation": {
+      "queryId": "ce299eba-ba0c-4bcf-b129-3e23068432e6",
+      "queryName": "map_cbn_oh_allocation",
+      "loadEnabled": false
+    },
+    "fact_costs_cbn_DataDestination": {
+      "queryId": "12d86fd7-fa1e-4660-a1a4-5c874f9a9473",
+      "queryName": "fact_costs_cbn_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_cost_elements_cbn_DataDestination": {
+      "queryId": "7914a26e-a8e3-4059-8127-ef360f77b818",
+      "queryName": "dim_cost_elements_cbn_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "map_cri_corrections": {
+      "queryId": "5807eb11-dc86-4e88-b2e7-7c2311274cb8",
+      "queryName": "map_cri_corrections",
+      "loadEnabled": false
+    },
+    "map_cbn_oh_allocation_DataDestination": {
+      "queryId": "f6444425-0cbc-4796-8421-48a5c7ff0f0a",
+      "queryName": "map_cbn_oh_allocation_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "map_target_service_cluster": {
+      "queryId": "a59f2bca-6a6c-46dd-a344-89834ec716fa",
+      "queryName": "map_target_service_cluster",
+      "loadEnabled": false
+    },
+    "map_cost_center": {
+      "queryId": "4989a822-1b20-4e4a-b86f-648acde09095",
+      "queryName": "map_cost_center",
+      "loadEnabled": false
+    },
+    "dim_cost_center_current_DataDestination": {
+      "queryId": "e6b5d7ea-9514-44c5-9ac5-3d5748cfbaa5",
+      "queryName": "dim_cost_center_current_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "fact_costs_restructuring_DataDestination": {
+      "queryId": "f99451af-2306-47ac-8764-3bcc93782ce5",
+      "queryName": "fact_costs_restructuring_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://allianzms.sharepoint.com/teams/AT0090-10144432",
+      "kind": "SharePoint",
+      "connectionId": "{\"ClusterId\":\"e3085755-1c3d-4627-9f38-cce3b8987262\",\"DatasourceId\":\"ddd60dd0-8aee-4de0-abf8-bc8307999ec6\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"e3085755-1c3d-4627-9f38-cce3b8987262\",\"DatasourceId\":\"b119cf12-394d-439c-bedf-be1b70fcb3eb\"}"
+    },
+    {
+      "path": "https://allianzms.sharepoint.com/teams/AT0090-10144432/Shared%20Documents/01_Power%20BI/05_Group/01_Data/00_Master%20Data/Local%20Master%20Data.xlsx",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"e3085755-1c3d-4627-9f38-cce3b8987262\",\"DatasourceId\":\"d2fc8d38-c2ab-442d-817d-4e217e2a6513\"}"
+    }
+  ]
+}

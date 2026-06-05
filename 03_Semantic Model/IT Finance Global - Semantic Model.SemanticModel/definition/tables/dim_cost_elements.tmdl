@@ -1,0 +1,170 @@
+table dim_cost_elements
+	lineageTag: 7c9362fc-3482-448a-b069-150e79fffdca
+	sourceLineageTag: [dbo].[dim_cost_elements]
+
+	column 'Cost Element ID'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 20cdadb4-89a9-4728-96e8-146bc2cd8ad9
+		sourceLineageTag: Cost Element ID
+		summarizeBy: none
+		sourceColumn: Cost Element ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column L0
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6db0f0bc-1c09-468f-a09f-d1c359f782ec
+		sourceLineageTag: L0
+		summarizeBy: none
+		sourceColumn: L0
+
+		annotation SummarizationSetBy = Automatic
+
+	column L1
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9635292f-81a9-4e93-8fdd-8c66f9d9b7ea
+		sourceLineageTag: L1
+		summarizeBy: none
+		sourceColumn: L1
+
+		annotation SummarizationSetBy = Automatic
+
+	column L2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5162499e-d8b7-4dfc-8366-3a6a5607075f
+		sourceLineageTag: L2
+		summarizeBy: none
+		sourceColumn: L2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P&L - L0'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 53324a6c-5925-4d19-bb7d-1217639c7f10
+		sourceLineageTag: P&L - L0
+		summarizeBy: none
+		sourceColumn: P&L - L0
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TO-BE P&L - L1'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ffbb6505-29f6-456f-9207-62517621ed1b
+		sourceLineageTag: TO-BE P&L - L1
+		summarizeBy: none
+		sourceColumn: TO-BE P&L - L1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TO-BE P&L - L2'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b535a401-a88c-4fa8-9d2a-36a64f92bdf3
+		sourceLineageTag: TO-BE P&L - L2
+		summarizeBy: none
+		sourceColumn: TO-BE P&L - L2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Create/ Delete/ Keep'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9ade9f44-8f3f-4a30-bfd0-c677396fbf77
+		sourceLineageTag: Create/ Delete/ Keep
+		summarizeBy: none
+		sourceColumn: Create/ Delete/ Keep
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New Cost Element Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c9cdd58c-6be1-42bf-a1e2-6a39c8394d3d
+		sourceLineageTag: New Cost Element Name
+		summarizeBy: none
+		sourceColumn: New Cost Element Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Nature'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b5c14fac-b115-4583-9139-c6d0fb66c49c
+		sourceLineageTag: Group Nature
+		summarizeBy: none
+		sourceColumn: Group Nature
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e5b03c7c-cbd4-43ad-a2d0-c8fa0945ec72
+		sourceLineageTag: Comments
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grouping CRI'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 76d16ab3-3d4b-40ab-85c2-d021ba20c83f
+		sourceLineageTag: Grouping CRI
+		summarizeBy: none
+		sourceColumn: Grouping CRI
+		sortByColumn: Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grouping CRI Aggregated'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ee20bdc9-b3d8-42eb-b95f-c12e26d5a531
+		sourceLineageTag: Grouping CRI Aggregated
+		summarizeBy: none
+		sourceColumn: Grouping CRI Aggregated
+		sortByColumn: Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Global Local Indicator Correction'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 74006eef-8a18-4652-b365-5cd3afb24450
+		sourceLineageTag: Global Local Indicator Correction
+		summarizeBy: none
+		sourceColumn: Global Local Indicator Correction
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a9d9f72a-f5f4-48db-8944-0ae85d71da2b
+		sourceLineageTag: Sort
+		summarizeBy: none
+		sourceColumn: Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cost_elements = entity
+		mode: directLake
+		source
+			entityName: dim_cost_elements
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

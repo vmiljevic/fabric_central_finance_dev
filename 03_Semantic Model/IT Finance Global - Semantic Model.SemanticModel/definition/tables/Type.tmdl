@@ -1,0 +1,34 @@
+table Type
+	lineageTag: c7ce8dca-1d1f-42d6-af8d-0fa8461854d3
+
+	column Type
+		lineageTag: 45332428-8a3c-422f-8a79-83d526848a97
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Type]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		formatString: 0
+		lineageTag: b8edee88-5f26-49e4-8df6-83af309da7b9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Type = calculated
+		mode: import
+		source =
+				DATATABLE(
+				    "Type", STRING,
+				    "Sort", INTEGER,
+				    {
+				        { "Actuals", 1 },
+				        { "Y+1 Plan", 2 }
+				    }
+				)
+
+	annotation PBI_Id = 9bbed07df16744dc9cc5799375c0e9b1
+

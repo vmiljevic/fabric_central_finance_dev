@@ -1,0 +1,145 @@
+table dim_company
+	lineageTag: e72f6d8d-7c09-45f1-93dd-47b140ec43a2
+	sourceLineageTag: [dbo].[dim_company]
+
+	column 'Company Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b082f3ef-7e4f-4e90-b532-c8276cac33a5
+		sourceLineageTag: Company Code
+		summarizeBy: none
+		sourceColumn: Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 27dc1250-fb99-4de0-933e-4641aab4ea19
+		sourceLineageTag: Company Name
+		summarizeBy: none
+		sourceColumn: Company Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0d58fc82-8d26-485d-9ea9-c0722c226e8d
+		sourceLineageTag: Location
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1e131eeb-c6d0-4dd1-80df-f1a7b270f13d
+		sourceLineageTag: Country Code
+		summarizeBy: none
+		sourceColumn: Country Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: b39c7193-002b-4b32-9965-f8c6cd2145f3
+		sourceLineageTag: Sort
+		summarizeBy: none
+		sourceColumn: Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a0e818a6-3624-4fa6-9a09-b56fe3637603
+		sourceLineageTag: Sort Flag
+		summarizeBy: none
+		sourceColumn: Sort Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Clasification'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bfe3ca7e-75e1-4127-8bf3-a99f3d0e4661
+		sourceLineageTag: Cost Clasification
+		summarizeBy: none
+		sourceColumn: Cost Clasification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pillar
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8108213d-5bf7-48f3-973d-4aa9bcda0c44
+		sourceLineageTag: Pillar
+		summarizeBy: none
+		sourceColumn: Pillar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pillar Short'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 09fc60e6-bf2c-4859-b59c-1bad000252b4
+		sourceLineageTag: Pillar Short
+		summarizeBy: none
+		sourceColumn: Pillar Short
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country 2025'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e9400d2e-4e9b-4748-9f3b-abe4a61e8260
+		sourceLineageTag: Country 2025
+		summarizeBy: none
+		sourceColumn: Country 2025
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country 2026'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 223e3f3b-1ca8-4ceb-bbcc-1f50aeeb3c6f
+		sourceLineageTag: Country 2026
+		summarizeBy: none
+		sourceColumn: Country 2026
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2e15421f-e504-4c67-8c80-165e3759a83a
+		sourceLineageTag: Flag
+		summarizeBy: none
+		sourceColumn: Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Flag Unicode'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 47a2de59-3b42-4a25-8cb6-ed4a53b66592
+		sourceLineageTag: Flag Unicode
+		summarizeBy: none
+		sourceColumn: Flag Unicode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_company = entity
+		mode: directLake
+		source
+			entityName: dim_company
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
